@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between min-h-screen bg-gradient-to-br bg-slate-900  text-white px-8 md:px-10">
+    <div id="home" className="flex flex-col md:flex-row items-center justify-between min-h-screen bg-gradient-to-br bg-slate-900  text-white px-8 md:px-10">
       {/* Left Side Content */}
       <div className="flex flex-col space-y-7 md:w-1/2 mt-10 md:mt-0 mx-4 px-16">
         <h4 className="text-gray-300 text-lg font-semibold">Hi, I'm Bisma</h4>
@@ -21,15 +21,6 @@ export default function Home() {
             <button className="px-6 py-3 border border-white rounded-md hover:bg-gray-400 hover:text-black transition duration-300 font-semibold">
               Hire Me
             </button>
-
-            {/* HashLinks styled like buttons */}
-            {/* <HashLink
-              smooth
-              to="/#about"
-              className="px-6 py-3 border border-white rounded-md hover:bg-gray-400 hover:text-black transition duration-300 font-semibold"
-            >
-              About Me
-            </HashLink> */}
 
           </div>
 
