@@ -1,8 +1,36 @@
+import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    const form = event.currentTarget;
+
+    try {
+      const formData = new FormData(form);
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+
+      form.reset();
+      window.alert("Submit Successful");
+    } catch (error) {
+      console.error("Form submit error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div id="contact" className="isolate px-4 sm:px-6 py-24 sm:py-32 lg:px-8">
+    <div
+      id="contact"
+      className="relative isolate px-4 sm:px-6 py-24 sm:py-32 lg:px-8"
+    >
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -17,20 +45,36 @@ export default function Contact() {
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-balance text-gray-100 md:text-5xl">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-balance text-[#31A3F2] md:text-5xl">
           Contact Me
         </h2>
-        <p className="mt-2 text-base sm:text-lg/8 text-gray-100 px-2">
+        <p className="mt-2 text-base sm:text-lg/8 text-[#869FBA] px-2">
           Let's discuss your next project and build something impactful
           together.
         </p>
       </div>
 
       <form
-        action="#"
+        action="https://api.web3forms.com/submit"
         method="POST"
+        onSubmit={handleSubmit}
         className="mx-auto mt-16 max-w-xl sm:mt-20 rounded-2xl border border-cyan-300/20 bg-slate-900/60 backdrop-blur-md p-5 sm:p-6 md:p-8 shadow-[0_16px_35px_rgba(2,6,23,0.35)]"
       >
+        <input
+          type="hidden"
+          name="access_key"
+          value="7b9ef97b-ffb6-4530-834e-129d0cb54bf1"
+        />
+        <input
+          type="checkbox"
+          name="botcheck"
+          className="hidden"
+          style={{ display: "none" }}
+          tabIndex="-1"
+          autoComplete="off"
+        />
+        <input type="hidden" name="subject" value="New Portfolio Contact" />
+
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -42,9 +86,10 @@ export default function Contact() {
             <div className="mt-2.5">
               <input
                 id="first-name"
-                name="first-name"
+                name="name"
                 type="text"
                 autoComplete="given-name"
+                required
                 className="block w-full border border-cyan-300/25 rounded-md bg-slate-950/70 px-3.5 py-2 text-base text-gray-100 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-400"
               />
             </div>
@@ -99,6 +144,7 @@ export default function Contact() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                required
                 className="block w-full border border-cyan-300/25 rounded-md bg-slate-950/70 px-3.5 py-2 text-base text-gray-100 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-400"
               />
             </div>
@@ -153,6 +199,7 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows={4}
+                required
                 className="block w-full border border-cyan-300/25 rounded-md bg-slate-950/70 px-3.5 py-2 text-base text-gray-100 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-400"
                 defaultValue={""}
               />
@@ -191,9 +238,10 @@ export default function Contact() {
         <div className="mt-10">
           <button
             type="submit"
+            disabled={isSubmitting}
             className="block w-full rounded-lg border border-cyan-300/45 bg-cyan-500/10 px-3.5 py-2.5 text-center text-sm font-semibold text-gray-100 shadow-xs hover:bg-cyan-500/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
           >
-            Let's talk
+            {isSubmitting ? "Submitting..." : "Let's talk"}
           </button>
         </div>
       </form>

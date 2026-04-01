@@ -6,10 +6,11 @@ import { LiaLaptopCodeSolid } from "react-icons/lia";
 const navigation = [
   { name: "HOME", href: "/#home" },
   { name: "ABOUT ME", href: "/#about" },
-  { name: "Service", href: "/#service" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Portfolio", href: "/#portfolio" },
-  { name: "Contact", href: "/#contact" },
+  { name: "SERVICE", href: "/#service" },
+  { name: "SKILLS", href: "/#skills" },
+  { name: "EDUCATION", href: "/#education" },
+  { name: "PROJECTS", href: "/#portfolio" },
+  { name: "CONTACT", href: "/#contact" },
 ];
 
 function Navbar() {

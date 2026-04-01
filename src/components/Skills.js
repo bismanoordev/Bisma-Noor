@@ -18,7 +18,7 @@ import reduxLogo from "../assets/redux.png";
 export default function Skills() {
   return (
     <div className="bg-slate-800">
-      <h1 className="text-center mb-10 sm:mb-12 cursor-pointer text-gray-100 text-4xl sm:text-5xl font-semibold pt-6 underline decoration-gray-600 decoration-4 underline-offset-4">
+      <h1 className="text-center mb-10 mt-6 sm:mb-12 cursor-pointer text-gray-100 text-4xl sm:text-5xl font-semibold underline decoration-gray-600 decoration-4 underline-offset-4">
         Skills
       </h1>
 

@@ -7,8 +7,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Service from "./components/Service";
 import About from "./components/About";
+import Education from "./components/Education";
 import Skills from "./components/Skills";
-import Portfolio from "./components/Portfolio"; 
+import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Navbar />
         <Home />
         <About />
+        <Education />
         <Service />
         <Skills />
         <Portfolio />
@@ -29,4 +31,3 @@ function App() {
 }
 
 export default App;
-

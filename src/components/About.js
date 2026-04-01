@@ -10,9 +10,9 @@ export default function About() {
         </h1>
         <div
           id="about"
-          className="flex flex-col md:flex-row items-center justify-between min-h-screen text-white px-4 sm:px-6 md:px-20 py-16"
+          className="flex flex-col lg:flex-row items-center justify-between min-h-screen text-white px-4 sm:px-6 md:px-20 py-16"
         >
-          <div className="md:w-1/2 flex justify-center mt-14 md:mt-0 ">
+          <div className="lg:w-1/2 flex justify-center mt-14 lg:mt-0 ">
             <div className="relative rounded-full border border-cyan-300/25 p-3 animate-float-slow">
               <div className="absolute inset-2 rounded-full border border-dashed border-slate-300/35 animate-spin-slow" />
               <div className="absolute -inset-2 rounded-full bg-cyan-400/10 blur-xl animate-pulse-glow" />
@@ -23,11 +23,11 @@ export default function About() {
               />
             </div>
           </div>
-          <div className="flex flex-col space-y-7 md:w-1/2 mt-10 md:mt-0 text-center md:text-left items-center md:items-start">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl leading-tight">
+          <div className="flex flex-col space-y-7 lg:w-1/2 mt-10 lg:mt-0 text-center lg:text-left items-center lg:items-start">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-tight">
               Hi, I'm <span className="text-cyan-300">Bisma</span>
             </h2>
-            <h4 className="text-gray-300 text-sm md:text-base font-semibold leading-6 sm:leading-7">
+            <h4 className="text-gray-300 text-sm lg:text-base font-semibold leading-6 sm:leading-7">
               <p>
                 I am a{" "}
                 <span className="font-semibold text-white">
@@ -62,10 +62,15 @@ export default function About() {
               </p>
             </h4>
 
-            <div className="flex gap-4 text-3xl justify-center md:justify-start">
-              <button className="w-fit mb-4 sm:mb-6 md:mb-3 px-5 py-2 border border-cyan-300/45 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 transition duration-300 font-semibold">
+            <div className="flex gap-4 text-3xl justify-center lg:justify-start">
+              <a
+                href="https://www.linkedin.com/in/bisma-noor-952092396/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-fit mb-4 sm:mb-6 md:mb-3 px-5 py-2 border border-cyan-300/50 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 hover:text-white transition duration-300 text-sm font-semibold tracking-wide"
+              >
                 Hire Me
-              </button>
+              </a>
             </div>
           </div>
         </div>
