@@ -2,6 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --bg: #070b14;
+  --bg-elevated: #0e1525;
+  --card: rgba(14, 21, 37, 0.78);
+  --line: rgba(34, 211, 238, 0.2);
+  --text: #e6eefc;
+  --muted: #9fb2cf;
+  --accent: #22d3ee;
+  --accent-2: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(34, 211, 238, 0.15),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(59, 130, 246, 0.15),
+      transparent 36%
+    ),
+    var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#root {
+  position: relative;
+}
+
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 26%, transparent 85%);
+}
+
+header,
+section,
+footer,
+div[id] {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-slate-900,
+.bg-slate-800,
+.bg-gray-900,
+.bg-gray-800 {
+  background-color: transparent !important;
+}
+
+.text-gray-100 {
+  color: var(--text) !important;
+}
+
+.text-gray-300,
+.text-gray-400,
+.text-gray-500 {
+  color: var(--muted) !important;
+}
+
+h1.text-center {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-decoration: none !important;
+  margin-bottom: 1.2rem;
+}
+
+#about,
+#service,
+#skills,
+#portfolio,
+#contact {
+  border-top: 1px solid var(--line);
+}
+
+#service > div[class*="max-w-sm"],
+#portfolio > div[class*="max-w-sm"],
+#skills [class*="rounded-xl"] {
+  background: var(--card) !important;
+  backdrop-filter: blur(8px);
+  border-color: rgba(148, 163, 184, 0.25) !important;
+  box-shadow: 0 14px 30px rgba(5, 10, 20, 0.3);
+}
+
+#service > div[class*="max-w-sm"]:hover,
+#portfolio > div[class*="max-w-sm"]:hover,
+#skills [class*="rounded-xl"]:hover {
+  border-color: rgba(34, 211, 238, 0.55) !important;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+}
+
+button {
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.28);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-2), var(--accent));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03060d;
+}
 
 /* @layer base{
     body{
