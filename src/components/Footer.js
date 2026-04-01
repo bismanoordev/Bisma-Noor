@@ -9,17 +9,17 @@ import {
 function Footer() {
   return (
     <footer className="py-6">
-      <div className="mx-auto w-full max-w-7xl px-6 py-5 rounded-xl border border-cyan-300/20 bg-slate-950/45 backdrop-blur-md md:flex md:items-center md:justify-between">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-5 rounded-xl border border-cyan-300/20 bg-slate-950/45 backdrop-blur-md md:flex md:items-center md:justify-between text-center md:text-left">
         <div>
           <h3 className="text-sm font-semibold text-gray-100">
             © 2026 Portfolio. All Rights Reserved.
           </h3>
-          <p className="mt-1 text-xs text-gray-300">
+          <p className="mt-1 text-xs text-gray-300 max-w-md mx-auto md:mx-0">
             Crafted with modern frontend design and clean user experience.
           </p>
         </div>
 
-        <div className="mt-5 flex items-center gap-2 md:mt-0">
+        <div className="mt-5 flex items-center justify-center gap-2 md:mt-0">
           <a
             href="https://www.facebook.com/"
             target="_blank"

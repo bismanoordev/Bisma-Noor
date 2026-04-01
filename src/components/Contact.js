@@ -2,7 +2,7 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function Contact() {
   return (
-    <div id="contact" className="isolate px-6 py-24 sm:py-32 lg:px-8">
+    <div id="contact" className="isolate px-4 sm:px-6 py-24 sm:py-32 lg:px-8">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -17,10 +17,10 @@ export default function Contact() {
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-100 sm:text-5xl">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-balance text-gray-100 md:text-5xl">
           Contact Me
         </h2>
-        <p className="mt-2 text-lg/8 text-gray-100">
+        <p className="mt-2 text-base sm:text-lg/8 text-gray-100 px-2">
           Let's discuss your next project and build something impactful
           together.
         </p>
@@ -29,7 +29,7 @@ export default function Contact() {
       <form
         action="#"
         method="POST"
-        className="mx-auto mt-16 max-w-xl sm:mt-20 rounded-2xl border border-cyan-300/20 bg-slate-900/60 backdrop-blur-md p-6 md:p-8 shadow-[0_16px_35px_rgba(2,6,23,0.35)]"
+        className="mx-auto mt-16 max-w-xl sm:mt-20 rounded-2xl border border-cyan-300/20 bg-slate-900/60 backdrop-blur-md p-5 sm:p-6 md:p-8 shadow-[0_16px_35px_rgba(2,6,23,0.35)]"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
@@ -112,14 +112,14 @@ export default function Contact() {
               Phone number
             </label>
             <div className="mt-2.5">
-              <div className="flex rounded-md bg-slate-950/70 border border-cyan-300/25 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-cyan-400">
+              <div className="flex flex-col sm:flex-row rounded-md bg-slate-950/70 border border-cyan-300/25 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-cyan-400 overflow-hidden">
                 <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                   <select
                     id="country"
                     name="country"
                     autoComplete="country"
                     aria-label="Country"
-                    className="col-start-1 row-start-1 w-full border border-cyan-300/25 bg-slate-950/70 appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-100 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-400 sm:text-sm/6"
+                    className="col-start-1 row-start-1 w-full border border-cyan-300/25 bg-slate-950/70 appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-100 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-400 sm:text-sm/6 sm:w-auto"
                   >
                     <option>US</option>
                     <option>CA</option>
@@ -135,7 +135,7 @@ export default function Contact() {
                   name="phone-number"
                   type="text"
                   placeholder="123-456-7890"
-                  className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base border border-cyan-300/25 bg-slate-950/70 text-gray-100 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                  className="block min-w-0 grow py-2 sm:py-1.5 pr-3 pl-3 sm:pl-1 text-base border border-cyan-300/25 bg-slate-950/70 text-gray-100 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                 />
               </div>
             </div>
