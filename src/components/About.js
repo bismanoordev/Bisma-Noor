@@ -5,29 +5,41 @@ export default function About() {
   return (
     <>
       <div>
-        <h1 className="text-center cursor-pointer text-gray-100 text-5xl font-semibold pt-6 underline decoration-gray-600 decoration-4 underline-offset-4">
+        <h1 className="text-center text-gray-100 text-3xl sm:text-4xl md:text-5xl font-semibold pt-6 underline decoration-gray-600 decoration-4 underline-offset-4">
           About me
         </h1>
+
         <div
           id="about"
-          className="flex flex-col lg:flex-row items-center justify-between min-h-screen text-white px-4 sm:px-6 md:px-20 py-16"
+          className="flex flex-col lg:flex-row items-center justify-between min-h-screen text-white px-4 sm:px-8 md:px-16 lg:px-20 py-12 sm:py-16 gap-10"
         >
-          <div className="lg:w-1/2 flex justify-center mt-14 lg:mt-0 ">
-            <div className="relative rounded-full border border-cyan-300/25 p-3 animate-float-slow">
+          {/* Image Section */}
+          <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+            <div className="relative rounded-full border border-cyan-300/25 p-2 sm:p-3 animate-float-slow">
               <div className="absolute inset-2 rounded-full border border-dashed border-slate-300/35 animate-spin-slow" />
               <div className="absolute -inset-2 rounded-full bg-cyan-400/10 blur-xl animate-pulse-glow" />
+
               <img
                 src={myImage}
                 alt="Profile"
-                className="relative z-10 rounded-full border border-cyan-300/30 bg-slate-900/40 object-contain w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[330px] md:h-[330px] grayscale hover:grayscale-0 transition duration-300 cursor-pointer shadow-[0_20px_50px_rgba(2,6,23,0.5)]"
+                className="relative z-10 rounded-full border border-cyan-300/30 bg-slate-900/40 object-contain 
+                w-[180px] h-[180px] 
+                sm:w-[240px] sm:h-[240px] 
+                md:w-[300px] md:h-[300px] 
+                lg:w-[330px] lg:h-[330px] 
+                grayscale hover:grayscale-0 transition duration-300 cursor-pointer 
+                shadow-[0_20px_50px_rgba(2,6,23,0.5)]"
               />
             </div>
           </div>
-          <div className="flex flex-col space-y-7 lg:w-1/2 mt-10 lg:mt-0 text-center lg:text-left items-center lg:items-start">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-tight">
+
+          {/* Text Section */}
+          <div className="flex flex-col space-y-5 lg:w-1/2 mt-6 lg:mt-0 text-center lg:text-left items-center lg:items-start">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
               Hi, I'm <span className="text-cyan-300">Bisma</span>
             </h2>
-            <h4 className="text-gray-300 text-sm lg:text-base font-semibold leading-6 sm:leading-7">
+
+            <h4 className="text-gray-300 text-xs sm:text-sm md:text-base font-semibold leading-6 sm:leading-7 max-w-xl">
               <p>
                 I am a{" "}
                 <span className="font-semibold text-white">
@@ -49,8 +61,8 @@ export default function About() {
                 </span>
                 ,{" "}
                 <span className="font-semibold text-[#0EA5E9]">Shadcn UI</span>,{" "}
-                <span className="font-semibold text-[#F7DF1E]">JavaScript</span>
-                , <span className="font-semibold text-[#1572B6]">CSS</span>,{" "}
+                <span className="font-semibold text-[#F7DF1E]">JavaScript</span>,{" "}
+                <span className="font-semibold text-[#1572B6]">CSS</span>,{" "}
                 <span className="font-semibold text-[#E34C26]">HTML</span>,{" "}
                 <span className="font-semibold text-[#E74C3C]">Replit</span>,{" "}
                 <span className="font-semibold text-[#3B82F6]">Replo</span>,{" "}
@@ -58,7 +70,6 @@ export default function About() {
                 <span className="font-semibold text-[#EC0000]">NestJS</span>,
                 Responsive Web Design, Web Development, Web Applications, and
                 Front-End Development.
-                <br />
               </p>
             </h4>
 
@@ -67,7 +78,7 @@ export default function About() {
                 href="https://www.linkedin.com/in/bisma-noor-952092396/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-fit mb-4 sm:mb-6 md:mb-3 px-5 py-2 border border-cyan-300/50 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 hover:text-white transition duration-300 text-sm font-semibold tracking-wide"
+                className="w-fit px-5 py-2 border border-cyan-300/50 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 hover:text-white transition duration-300 text-sm font-semibold tracking-wide"
               >
                 Hire Me
               </a>
