@@ -1,5 +1,6 @@
 import { FaLaptop, FaCode, FaRocket } from 'react-icons/fa';
 import { HiOutlineSparkles } from 'react-icons/hi';
+import ScrollReveal from './ScrollReveal';
 
 const services = [
   {
@@ -31,7 +32,7 @@ export default function Services() {
     <section id="services" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <div className="flex flex-col items-center text-center mb-16">
+        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
           <span className="badge mb-4">
             <HiOutlineSparkles />
             Services
@@ -42,63 +43,42 @@ export default function Services() {
           <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
             End-to-end web development services with a focus on modern design and performance.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map(({ icon: Icon, title, desc, tags, color, featured }) => (
-            <div
-              key={title}
-              className={`relative group glow-card rounded-2xl p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-2 ${
-                featured
-                  ? 'border-[rgba(59,130,246,0.4)] shadow-[0_0_30px_rgba(59,130,246,0.1)]'
-                  : ''
-              }`}
-            >
-              {featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 badge text-[10px]">
-                  ✦ Most Popular
-                </span>
-              )}
-
-              {/* Icon */}
+          {services.map(({ icon: Icon, title, desc, tags, color, featured }, i) => (
+            <ScrollReveal key={title} animation="fadeUp" delay={i * 120}>
               <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center"
-                style={{
-                  background: `rgba(${color === '#22d3ee' ? '34,211,238' : color === '#3b82f6' ? '59,130,246' : '167,139,250'}, 0.1)`,
-                  border: `1px solid rgba(${color === '#22d3ee' ? '34,211,238' : color === '#3b82f6' ? '59,130,246' : '167,139,250'}, 0.25)`,
-                }}
+                className={`relative group glow-card rounded-2xl p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-2 h-full ${
+                  featured ? 'border-[rgba(59,130,246,0.4)] shadow-[0_0_30px_rgba(59,130,246,0.1)]' : ''
+                }`}
               >
-                <Icon
-                  className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
-                  style={{ color }}
-                />
+                {featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 badge text-[10px]">✦ Most Popular</span>
+                )}
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center"
+                  style={{
+                    background: `rgba(${color === '#22d3ee' ? '34,211,238' : color === '#3b82f6' ? '59,130,246' : '167,139,250'}, 0.1)`,
+                    border:     `1px solid rgba(${color === '#22d3ee' ? '34,211,238' : color === '#3b82f6' ? '59,130,246' : '167,139,250'}, 0.25)`,
+                  }}
+                >
+                  <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" style={{ color }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-[var(--accent)] transition-colors duration-200">{title}</h3>
+                  <p className="text-sm text-[var(--muted)] leading-relaxed">{desc}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {tags.map((tag) => (
+                    <span key={tag} className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/5 text-[var(--muted)] border border-white/10">{tag}</span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors duration-200 mt-1">
+                  Learn more <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                </div>
               </div>
-
-              <div>
-                <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-[var(--accent)] transition-colors duration-200">
-                  {title}
-                </h3>
-                <p className="text-sm text-[var(--muted)] leading-relaxed">{desc}</p>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/5 text-[var(--muted)] border border-white/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bottom arrow */}
-              <div className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors duration-200 mt-1">
-                Learn more
-                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

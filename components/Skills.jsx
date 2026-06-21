@@ -1,20 +1,21 @@
 import Image from 'next/image';
-import htmlLogo from '@/src/assets/html5.png';
-import cssLogo from '@/src/assets/css.png';
-import jsLogo from '@/src/assets/js.png';
-import reactLogo from '@/src/assets/react.png';
-import bootstrapLogo from '@/src/assets/bootstrap.png';
-import githubLogo from '@/src/assets/github.png';
-import tailLogo from '@/src/assets/tail.png';
-import replitLogo from '@/src/assets/Replit.png';
-import shopifyLogo from '@/src/assets/shopify.png';
-import firebaseLogo from '@/src/assets/firebase.png';
-import supabaseLogo from '@/src/assets/supabase.png';
-import nextLogo from '@/src/assets/next.png';
-import vercelLogo from '@/src/assets/vercel.png';
-import materialLogo from '@/src/assets/matrial-ui.png';
-import reduxLogo from '@/src/assets/redux.png';
-import wordpressLogo from '@/src/assets/wordpress.png';
+import ScrollReveal from './ScrollReveal';
+import htmlLogo from '@/assets/html5.png';
+import cssLogo from '@/assets/css.png';
+import jsLogo from '@/assets/js.png';
+import reactLogo from '@/assets/react.png';
+import bootstrapLogo from '@/assets/bootstrap.png';
+import githubLogo from '@/assets/github.png';
+import tailLogo from '@/assets/tail.png';
+import replitLogo from '@/assets/Replit.png';
+import shopifyLogo from '@/assets/shopify.png';
+import firebaseLogo from '@/assets/firebase.png';
+import supabaseLogo from '@/assets/supabase.png';
+import nextLogo from '@/assets/next.png';
+import vercelLogo from '@/assets/vercel.png';
+import materialLogo from '@/assets/matrial-ui.png';
+import reduxLogo from '@/assets/redux.png';
+import wordpressLogo from '@/assets/wordpress.png';
 
 const techSkills = [
   { name: 'HTML5',       img: htmlLogo,      color: '#E65100', level: 95 },
@@ -107,7 +108,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Heading */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
           <span className="badge mb-4">Skills</span>
           <h2 className="section-heading text-white">
             My <span className="gradient-text">Tech Stack</span>
@@ -115,7 +116,7 @@ export default function Skills() {
           <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
             Technologies and tools I use to build fast, modern, and scalable web experiences.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* ── Tech Skills with logos ── */}
         <div className="mb-6">
@@ -127,9 +128,9 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mb-16">
-          {techSkills.map((skill) => (
+          {techSkills.map((skill, i) => (
+            <ScrollReveal key={skill.name} animation="scale" delay={i * 50}>
             <div
-              key={skill.name}
               className="group glow-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-default hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="relative w-12 h-12 group-hover:scale-110 transition-transform duration-300">
@@ -153,6 +154,7 @@ export default function Skills() {
                 </p>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -165,10 +167,11 @@ export default function Skills() {
           </p>
 
           <div className="flex flex-col gap-6">
-            {categories.map((cat) => {
+            {categories.map((cat, i) => {
               const items = additionalSkills.filter((s) => s.category === cat.key);
               return (
-                <div key={cat.key} className="flex flex-col sm:flex-row sm:items-start gap-4">
+                <ScrollReveal key={cat.key} animation="fadeLeft" delay={i * 100}>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-4">
 
                   {/* Category label — fixed width */}
                   <div className="flex items-center gap-2 sm:w-44 flex-shrink-0 pt-0.5">
@@ -205,6 +208,7 @@ export default function Skills() {
                     ))}
                   </div>
                 </div>
+                </ScrollReveal>
               );
             })}
           </div>

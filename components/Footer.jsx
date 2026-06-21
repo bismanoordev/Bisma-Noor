@@ -1,5 +1,6 @@
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { LiaLaptopCodeSolid } from 'react-icons/lia';
+import ScrollReveal from './ScrollReveal';
 
 const socials = [
   { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn' },
@@ -21,7 +22,7 @@ export default function Footer() {
     <footer className="border-t border-[rgba(34,211,238,0.1)] py-12">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
+        <ScrollReveal animation="fadeUp" className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-2">
@@ -70,7 +71,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Bottom bar */}
         <div className="border-t border-[rgba(34,211,238,0.08)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">

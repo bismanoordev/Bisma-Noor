@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {
   FaEnvelope, FaLinkedinIn, FaGithub, FaInstagram, FaFacebook,
 } from 'react-icons/fa';
+import ScrollReveal from './ScrollReveal';
 import { HiLocationMarker, HiMail } from 'react-icons/hi';
 
 const socials = [
@@ -37,7 +38,7 @@ export default function Contact() {
     <section id="contact" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <div className="flex flex-col items-center text-center mb-16">
+        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
           <span className="badge mb-4">
             <FaEnvelope size={11} />
             Contact
@@ -48,12 +49,12 @@ export default function Contact() {
           <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
 
           {/* Left: Info */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <ScrollReveal animation="fadeLeft" delay={100} className="lg:col-span-2 flex flex-col gap-6">
             <div className="glow-card rounded-2xl p-6 flex flex-col gap-6">
               <h3 className="text-xl font-display font-bold text-white">Let&apos;s work together</h3>
               <p className="text-sm text-[var(--muted)] leading-relaxed">
@@ -113,10 +114,10 @@ export default function Contact() {
                 View LinkedIn Profile
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Form */}
-          <div className="lg:col-span-3">
+          <ScrollReveal animation="fadeRight" delay={150} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="glow-card rounded-2xl p-6 sm:p-8 flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-2">
@@ -189,7 +190,7 @@ export default function Contact() {
                 {sent ? '✓ Message Sent!' : 'Send Message →'}
               </button>
             </form>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

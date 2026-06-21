@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import MovieBox from '@/src/assets/MovieBox.png';
-import Food from '@/src/assets/Food.png';
-import Icoder from '@/src/assets/Icoder.png';
-import TextUtils from '@/src/assets/TextUtils.png';
-import CarBooking from '@/src/assets/car-booking.png';
-import MissRose from '@/src/assets/miss-rose.png';
+import ScrollReveal from './ScrollReveal';
+import MovieBox from '@/assets/MovieBox.png';
+import Food from '@/assets/Food.png';
+import Icoder from '@/assets/Icoder.png';
+import TextUtils from '@/assets/TextUtils.png';
+import CarBooking from '@/assets/car-booking.png';
+import MissRose from '@/assets/miss-rose.png';
 
 const projects = [
   {
@@ -57,7 +58,7 @@ export default function Projects() {
     <section id="projects" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <div className="flex flex-col items-center text-center mb-16">
+        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
           <span className="badge mb-4">Portfolio</span>
           <h2 className="section-heading text-white">
             Recent <span className="gradient-text">Projects</span>
@@ -65,13 +66,13 @@ export default function Projects() {
           <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
             A selection of projects showcasing my skills in design, development, and problem solving.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
+            <ScrollReveal key={project.title} animation="fadeUp" delay={i * 100}>
             <div
-              key={project.title}
-              className="group glow-card rounded-2xl overflow-hidden flex flex-col hover:-translate-y-2 transition-all duration-300"
+              className="group glow-card rounded-2xl overflow-hidden flex flex-col hover:-translate-y-2 transition-all duration-300 h-full"
             >
               {/* Image with overlay */}
               <div className="relative h-48 overflow-hidden">
@@ -133,10 +134,12 @@ export default function Projects() {
                 </a>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* GitHub CTA */}
+        <ScrollReveal animation="fadeUp" delay={100}>
         <div className="mt-12 text-center">
           <a
             href="https://github.com/bismanoordev"
@@ -148,6 +151,7 @@ export default function Projects() {
             View All on GitHub
           </a>
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

@@ -36,6 +36,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Jab menu open ho — background scroll band
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   const handleNavClick = (href) => {
     setOpen(false);
     const id = href.slice(1);
@@ -85,15 +91,17 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Hire me button */}
-        <a
-          href="https://www.linkedin.com/in/bisma-noor-952092396/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:flex btn-primary text-sm"
-        >
-          Hire Me
-        </a>
+        {/* Hire me button — desktop only */}
+        <div className="hidden lg:block">
+          <a
+            href="https://www.linkedin.com/in/bisma-noor-952092396/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-sm"
+          >
+            Hire Me
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -106,14 +114,14 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${open ? 'visible' : 'invisible'}`}
+        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${open ? 'visible' : 'invisible'}`}
       >
         <div
-          className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-[#060b14]/80 backdrop-blur-md transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setOpen(false)}
         />
         <aside
-          className={`absolute top-0 right-0 h-full w-72 bg-[#060b14]/95 border-l border-[rgba(34,211,238,0.15)] backdrop-blur-xl p-6 flex flex-col gap-6 transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`absolute top-0 right-0 h-full w-72 bg-[#060b14] border-l border-[rgba(34,211,238,0.15)] p-6 flex flex-col gap-6 transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
         >
           <div className="flex items-center justify-between">
             <span className="font-display font-bold text-white text-lg">
