@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 import {
-  FaEnvelope, FaLinkedinIn, FaGithub, FaInstagram, FaFacebook,
+  FaEnvelope, FaLinkedinIn, FaGithub,
 } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import ScrollReveal from './ScrollReveal';
 import { HiLocationMarker, HiMail } from 'react-icons/hi';
 
 const socials = [
   { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn', color: '#0A66C2' },
-  { icon: FaGithub, href: 'https://github.com/bismanoordev', label: 'GitHub', color: '#fff' },
-  { icon: FaInstagram, href: 'https://www.instagram.com/', label: 'Instagram', color: '#E4405F' },
-  { icon: FaFacebook, href: 'https://www.facebook.com/', label: 'Facebook', color: '#1877F2' },
+  { icon: FaXTwitter,   href: 'https://x.com/',                                    label: 'X',        color: '#fff'    },
+  { icon: FaGithub,     href: 'https://github.com/bismanoordev',                    label: 'GitHub',   color: '#fff'    },
 ];
 
 const contactInfo = [

@@ -61,7 +61,7 @@ export default function About() {
             <div>
               <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4">
                 Web Developer &{' '}
-                <span className="gradient-text">UI Craftsman</span>
+                <span className="gradient-text">UI Artisan</span>
               </h3>
               <p className="text-[var(--muted)] text-sm sm:text-base leading-relaxed">
                 I&apos;m <span className="text-white font-semibold">Bisma Noor</span>, a Web Developer skilled in

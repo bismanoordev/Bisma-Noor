@@ -2,14 +2,15 @@
 
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
-import { FaGithub, FaLinkedinIn, FaInstagram, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaDownload } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import myImage from '@/assets/profile.png';
 import ScrollReveal from './ScrollReveal';
 
 const socials = [
-  { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn'  },
-  { icon: FaGithub,     href: 'https://github.com/bismanoordev',                    label: 'GitHub'    },
-  { icon: FaInstagram,  href: 'https://www.instagram.com/',                         label: 'Instagram' },
+  { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn' },
+  { icon: FaXTwitter,   href: 'https://x.com/',                                    label: 'X'        },
+  { icon: FaGithub,     href: 'https://github.com/bismanoordev',                    label: 'GitHub'   },
 ];
 
 export default function Hero() {
