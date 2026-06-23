@@ -70,7 +70,8 @@ export default function About() {
               </p>
               <p className="text-[var(--muted)] text-sm sm:text-base leading-relaxed mt-4">
                 Currently pursuing a <span className="text-white">BS in Computer Science</span> from the Virtual University of Pakistan,
-                while also completing a Web Development Certification from <span className="text-white">Saylani Mass I.T Training (SMIT)</span>.
+                while also completing a Web Development Certification from <span className="text-white">Saylani Mass I.T Training (SMIT)</span>,
+                and have completed <span className="text-white">C++ Essentials 1</span> from Cisco Networking Academy.
               </p>
             </div>
 
