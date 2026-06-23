@@ -1,4 +1,4 @@
-import { FaLaptop, FaCode, FaRocket } from 'react-icons/fa';
+import { FaLaptop, FaCode, FaRocket, FaSearch } from 'react-icons/fa';
 import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
 
@@ -25,12 +25,19 @@ const services = [
     tags: ['Replit', 'Shopify', 'CMS'],
     color: '#a78bfa',
   },
+  {
+    icon: FaSearch,
+    title: 'SEO & Performance',
+    desc: 'Boost your website visibility and speed with technical SEO, Core Web Vitals optimization, and best-in-class performance tuning.',
+    tags: ['SEO', 'Core Web Vitals', 'Speed'],
+    color: '#34d399',
+  },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
         <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
           <span className="badge mb-4">
@@ -45,7 +52,7 @@ export default function Services() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {services.map(({ icon: Icon, title, desc, tags, color, featured }, i) => (
             <ScrollReveal key={title} animation="fadeUp" delay={i * 120}>
               <div
@@ -54,7 +61,7 @@ export default function Services() {
                 }`}
               >
                 {featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 badge text-[10px]">✦ Most Popular</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 badge text-[10px] whitespace-nowrap">✦ Most Popular</span>
                 )}
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center"
