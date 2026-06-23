@@ -51,7 +51,7 @@ export default function Hero() {
           </ScrollReveal>
           <ScrollReveal animation="fadeUp" delay={230}>
             <p className="text-[var(--muted)] text-sm leading-relaxed">
-              Frontend Developer — React &amp; Next.js<br />
+              Web Developer — React &amp; Next.js<br />
               Building fast, modern web experiences.
             </p>
           </ScrollReveal>
@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
             <a
               href="/resume.pdf"
-              download="Bisma Noor - Frontend Developer.pdf"
+              download="Bisma Noor - Web Developer.pdf"
               className="btn-outline text-xs py-2.5 tracking-[0.08em] uppercase w-full justify-center whitespace-nowrap"
             >
               <FaDownload size={10} />
@@ -296,7 +296,7 @@ export default function Hero() {
             </a>
             <a
               href="/resume.pdf"
-              download="Bisma Noor - Frontend Developer.pdf"
+              download="Bisma Noor - Web Developer.pdf"
               className="btn-outline text-[11px] px-4 py-2.5 tracking-[0.1em] uppercase justify-center"
             >
               <FaDownload size={10} />
@@ -308,7 +308,7 @@ export default function Hero() {
         {/* BOTTOM RIGHT — description + socials */}
         <ScrollReveal animation="fadeRight" delay={350} className="absolute bottom-8 lg:bottom-10 right-5 lg:right-10 xl:right-16 z-20 max-w-[180px] lg:max-w-[220px] xl:max-w-[280px] text-right">
           <p className="text-[var(--muted)] text-[12px] lg:text-sm xl:text-base leading-relaxed mb-4">
-            — Frontend Developer<br />
+            — Web Developer<br />
             skilled in React &amp; Next.js —<br />
             building fast, modern<br />
             web experiences.

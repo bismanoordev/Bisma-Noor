@@ -60,11 +60,11 @@ export default function About() {
           <ScrollReveal animation="fadeRight" delay={150} className="flex-1 flex flex-col gap-8">
             <div>
               <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4">
-                Frontend Developer &{' '}
+                Web Developer &{' '}
                 <span className="gradient-text">UI Craftsman</span>
               </h3>
               <p className="text-[var(--muted)] text-sm sm:text-base leading-relaxed">
-                I&apos;m <span className="text-white font-semibold">Bisma Noor</span>, a Frontend Developer skilled in
+                I&apos;m <span className="text-white font-semibold">Bisma Noor</span>, a Web Developer skilled in
                 React.js, Next.js, and Tailwind CSS, with experience building responsive and SEO-friendly web applications.
                 Strong focus on clean UI/UX, performance optimization, and modern web development practices.
               </p>

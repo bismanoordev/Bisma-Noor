@@ -32,7 +32,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-[var(--muted)] max-w-xs text-center md:text-left">
-              Frontend Developer crafting modern, performant, and beautiful web experiences.
+              Web Developer crafting modern, performant, and beautiful web experiences.
             </p>
           </div>
 

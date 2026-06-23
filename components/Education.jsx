@@ -16,6 +16,13 @@ const timeline = [
     detail: 'Hands-on training in frontend frameworks and full-stack basics. Built multiple real-world projects using React and modern tools.',
     grade: 'In Progress',
   },
+  {
+    degree: 'C++ Essentials 1',
+    school: 'Cisco Networking Academy — Virtual University Campus, Faisalabad',
+    period: 'May 2026',
+    detail: 'Completed C++ Essentials 1 through the Cisco Networking Academy program, covering core programming fundamentals and object-oriented concepts in C++.',
+    grade: 'Completed',
+  },
 ];
 
 export default function Education() {
