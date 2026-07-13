@@ -1,4 +1,5 @@
 import { FaGraduationCap } from 'react-icons/fa';
+import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
 
 const timeline = [
@@ -27,54 +28,85 @@ const timeline = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <section id="education" className=" !border-t-0">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
-          <span className="badge mb-4">Education</span>
-          <h2 className="section-heading text-white">
-            Academic <span className="gradient-text">Journey</span>
-          </h2>
-          <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
-            A timeline of my educational milestones and learning foundations.
-          </p>
-        </ScrollReveal>
+        {/* ── Editorial header ── */}
+        <div className="mb-16 lg:mb-20">
+          <ScrollReveal animation="fadeUp">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="badge">Education</span>
+              <span className="flex-1 h-px bg-[var(--line)]" />
+              <HiOutlineSparkles className="text-[var(--accent)]" size={16} />
+            </div>
+          </ScrollReveal>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--accent)] via-[var(--accent-2)] to-transparent opacity-30" />
-          <div className="flex flex-col gap-10">
-            {timeline.map((item, i) => (
-              <ScrollReveal key={item.degree} animation="fadeRight" delay={i * 150}>
-                <div className="relative flex gap-8">
-                  <div className="flex-shrink-0 relative z-10 flex items-start pt-1">
-                    <div className="w-12 h-12 rounded-xl border border-[rgba(34,211,238,0.3)] bg-[rgba(34,211,238,0.08)] flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.15)]">
-                      <FaGraduationCap className="text-[var(--accent)] w-5 h-5" />
-                    </div>
+          <ScrollReveal animation="fadeUp" delay={120}>
+            <h2
+              className="font-black text-white"
+              style={{
+                fontSize: 'clamp(1.9rem, 4vw, 3rem)',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.12,
+                fontFamily: 'var(--font-space)',
+              }}
+            >
+              Academic <span className="gradient-text">Journey</span>
+              <span className="text-[var(--accent)]">.</span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fadeUp" delay={200}>
+            <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
+              A timeline of my educational milestones and learning foundations.
+            </p>
+          </ScrollReveal>
+        </div>
+
+        {/* ── Cards — 3 in a row (like Services) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {timeline.map((item, i) => (
+            <ScrollReveal key={item.degree} animation="fadeUp" delay={i * 120}>
+              <div className="relative group glow-card rounded-2xl p-8 flex flex-col gap-5 h-full transition-all duration-300 hover:-translate-y-2">
+
+                {/* Icon + number */}
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-xl border border-[rgba(34,211,238,0.25)] bg-[rgba(34,211,238,0.08)] flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.12)]">
+                    <FaGraduationCap className="text-[var(--accent)] w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
                   </div>
-                  <div className="flex-1 glow-card rounded-2xl p-6 group">
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                      <div>
-                        <span className="text-[10px] font-bold tracking-[0.15em] text-[var(--muted)] uppercase">0{i + 1}</span>
-                        <h3 className="text-lg sm:text-xl font-display font-bold text-white mt-0.5 group-hover:text-[var(--accent)] transition-colors duration-200">{item.degree}</h3>
-                        <p className="text-sm font-semibold text-[var(--accent)] mt-0.5">{item.school}</p>
-                      </div>
-                      <div className="flex flex-col items-end gap-1">
-                        <span className="text-xs font-semibold px-3 py-1 rounded-full border border-[rgba(34,211,238,0.3)] text-[var(--accent)] bg-[rgba(34,211,238,0.08)]">{item.period}</span>
-                        <span className="text-[10px] font-medium text-[var(--muted)]">{item.grade}</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-[var(--muted)] leading-relaxed">{item.detail}</p>
-                    <div className="mt-4 pt-4 border-t border-[rgba(34,211,238,0.1)]">
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[var(--muted)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                        Academic Milestone
-                      </span>
-                    </div>
-                  </div>
+                  <span className="text-[11px] font-bold tracking-[0.2em] text-[var(--muted)] uppercase">0{i + 1}</span>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+
+                {/* Title + school */}
+                <div>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-white mb-1.5 group-hover:text-[var(--accent)] transition-colors duration-200">
+                    {item.degree}
+                  </h3>
+                  <p className="text-sm font-semibold text-[var(--accent)]">{item.school}</p>
+                </div>
+
+                {/* Detail */}
+                <p className="text-sm text-[var(--muted)] leading-relaxed flex-1">{item.detail}</p>
+
+                {/* Footer — period + status */}
+                <div className="flex flex-wrap items-center justify-between gap-2 mt-auto pt-4 border-t border-[rgba(34,211,238,0.1)]">
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full border border-[rgba(34,211,238,0.3)] text-[var(--accent)] bg-[rgba(34,211,238,0.08)]">
+                    {item.period}
+                  </span>
+                  <span
+                    className={`inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider ${
+                      item.grade === 'Completed' ? 'text-[#34d399]' : 'text-[var(--muted)]'
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${item.grade === 'Completed' ? 'bg-[#34d399]' : 'bg-[var(--accent)] animate-pulse'}`}
+                    />
+                    {item.grade}
+                  </span>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
 
       </div>

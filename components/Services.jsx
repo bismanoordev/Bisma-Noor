@@ -36,21 +36,40 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 lg:py-32">
+    <section id="services" className="py-24 lg:py-32 !border-t-0">
       <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
-          <span className="badge mb-4">
-            <HiOutlineSparkles />
-            Services
-          </span>
-          <h2 className="section-heading text-white">
-            What I <span className="gradient-text">Offer</span>
-          </h2>
-          <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
-            End-to-end web development services with a focus on modern design and performance.
-          </p>
-        </ScrollReveal>
+        {/* ── Editorial header ── */}
+        <div className="mb-16 lg:mb-20">
+          <ScrollReveal animation="fadeUp">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="badge">Services</span>
+              <span className="flex-1 h-px bg-[var(--line)]" />
+              <HiOutlineSparkles className="text-[var(--accent)]" size={16} />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fadeUp" delay={120}>
+            <h2
+              className="font-black text-white"
+              style={{
+                fontSize: 'clamp(1.9rem, 4vw, 3rem)',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.12,
+                fontFamily: 'var(--font-space)',
+              }}
+            >
+              What I <span className="gradient-text">Offer</span>
+              <span className="text-[var(--accent)]">.</span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fadeUp" delay={200}>
+            <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
+              End-to-end web development services with a focus on modern design and performance.
+            </p>
+          </ScrollReveal>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {services.map(({ icon: Icon, title, desc, tags, color, featured }, i) => (

@@ -6,20 +6,20 @@ import Services from '@/components/Services';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import LetsBuild from '@/components/LetsBuild';
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative overflow-x-clip">
       <Navbar />
       <Hero />
       <About />
-      <Education />
       <Services />
       <Skills />
+      <Education />
       <Projects />
       <Contact />
-      <Footer />
+      <LetsBuild />
     </main>
   );
 }

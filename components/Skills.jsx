@@ -1,219 +1,277 @@
-import Image from 'next/image';
+'use client';
+
+import { useState, useRef, useEffect } from 'react';
+import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
-import htmlLogo from '@/assets/html5.png';
-import cssLogo from '@/assets/css.png';
-import jsLogo from '@/assets/js.png';
-import reactLogo from '@/assets/react.png';
-import bootstrapLogo from '@/assets/bootstrap.png';
-import githubLogo from '@/assets/github.png';
-import tailLogo from '@/assets/tail.png';
-import replitLogo from '@/assets/Replit.png';
-import shopifyLogo from '@/assets/shopify.png';
-import firebaseLogo from '@/assets/firebase.png';
-import supabaseLogo from '@/assets/supabase.png';
-import nextLogo from '@/assets/next.png';
-import vercelLogo from '@/assets/vercel.png';
-import materialLogo from '@/assets/matrial-ui.png';
-import reduxLogo from '@/assets/redux.png';
-import wordpressLogo from '@/assets/wordpress.png';
 
-const techSkills = [
-  { name: 'HTML5',       img: htmlLogo,      color: '#E65100', level: 95 },
-  { name: 'CSS3',        img: cssLogo,       color: '#0277BD', level: 90 },
-  { name: 'JavaScript',  img: jsLogo,        color: '#F7DF1E', level: 88 },
-  { name: 'React.js',    img: reactLogo,     color: '#00D8FF', level: 90 },
-  { name: 'Next.js',     img: nextLogo,      color: '#E5E7EB', level: 85 },
-  { name: 'Tailwind CSS',img: tailLogo,      color: '#00ACC1', level: 92 },
-  { name: 'Redux',       img: reduxLogo,     color: '#764ABC', level: 80 },
-  { name: 'Bootstrap',   img: bootstrapLogo, color: '#6C19FF', level: 85 },
-  { name: 'Material-UI', img: materialLogo,  color: '#007FFF', level: 78 },
-  { name: 'Firebase',    img: firebaseLogo,  color: '#FFCA28', level: 80 },
-  { name: 'Supabase',    img: supabaseLogo,  color: '#3ECF8E', level: 75 },
-  { name: 'Shopify',     img: shopifyLogo,   color: '#96BF48', level: 78 },
-  { name: 'GitHub',      img: githubLogo,    color: '#F5F5F5', level: 85 },
-  { name: 'Vercel',      img: vercelLogo,    color: '#A3A3A3', level: 82 },
-  { name: 'WordPress',   img: wordpressLogo, color: '#00749C', level: 72 },
-  { name: 'Replit',      img: replitLogo,    color: '#E74C3C', level: 75 },
-];
-
-const additionalSkills = [
-  // Core
-  { label: 'TypeScript',                  category: 'Core' },
-  { label: 'Node.js',                     category: 'Core' },
-  { label: 'Shadcn UI',                   category: 'Core' },
-  { label: 'Replo',                       category: 'Core' },
-  { label: 'Git',                         category: 'Core' },
-  // Web Expertise
-  { label: 'Responsive Web Design',       category: 'Web' },
-  { label: 'SEO Optimization',            category: 'Web' },
-  { label: 'Web Performance Optimization',category: 'Web' },
-  { label: 'Core Web Vitals',             category: 'Web' },
-  { label: 'API Integration',             category: 'Web' },
-  { label: 'Cross-Browser Compatibility', category: 'Web' },
-  { label: 'SaaS Development',            category: 'Web' },
-  { label: 'UI/UX Design',                category: 'Web' },
-  // AI Tools
-  { label: 'Claude AI',                   category: 'AI' },
-  { label: 'Cursor AI',                   category: 'AI' },
-  { label: 'GitHub Copilot',              category: 'AI' },
-  { label: 'Vercel V0',                   category: 'AI' },
-  { label: 'OpenAI Codex',                category: 'AI' },
-  { label: 'AI Code Debugging',           category: 'AI' },
-  // Other
-  { label: 'Shopify Development',         category: 'Other' },
-  { label: 'WordPress Development',       category: 'Other' },
-  { label: 'Problem Solving',             category: 'Other' },
-  { label: 'OOP',                         category: 'Other' },
-];
-
-const categories = [
+const groups = [
   {
-    key: 'Core',
-    label: 'Core Technologies',
+    label: 'Technologies',
+    role: 'Languages · Frameworks · Tools',
+    desc: 'The core stack I reach for to build fast, modern, production-ready web applications.',
     dot: '#22d3ee',
-    tagBg: 'rgba(34,211,238,0.08)',
-    tagBorder: 'rgba(34,211,238,0.22)',
-    tagText: '#a5f3fc',
+    items: [
+      'HTML5', 'CSS3', 'JavaScript', 'Python', 'React.js', 'Next.js', 'Tailwind CSS',
+      'Redux', 'Bootstrap', 'Material-UI', 'Firebase', 'Supabase', 'MongoDB', 'Shopify',
+      'GitHub', 'Vercel', 'Cloudinary', 'WordPress', 'Replit',
+    ],
   },
   {
-    key: 'Web',
+    label: 'Core Technologies',
+    role: 'Foundation of my workflow',
+    desc: 'The foundational technologies and tooling that power everything I build.',
+    dot: '#22d3ee',
+    items: ['TypeScript', 'Node.js', 'Shadcn UI', 'Replo', 'Git'],
+  },
+  {
     label: 'Web Expertise',
+    role: 'Fast · Accessible · Discoverable',
+    desc: 'How I make the web fast, SEO-friendly, cross-browser, and delightful to use.',
     dot: '#60a5fa',
-    tagBg: 'rgba(59,130,246,0.08)',
-    tagBorder: 'rgba(59,130,246,0.22)',
-    tagText: '#bfdbfe',
+    items: [
+      'Responsive Web Design', 'SEO Optimization', 'Web Performance Optimization',
+      'Core Web Vitals', 'API Integration', 'Cross-Browser Compatibility',
+      'SaaS Development', 'UI/UX Design',
+    ],
   },
   {
-    key: 'AI',
     label: 'AI Tools',
+    role: 'AI-assisted development',
+    desc: 'Modern AI tools I use daily to build faster and debug smarter.',
     dot: '#a78bfa',
-    tagBg: 'rgba(167,139,250,0.08)',
-    tagBorder: 'rgba(167,139,250,0.22)',
-    tagText: '#ddd6fe',
+    items: ['Claude AI', 'Cursor AI', 'GitHub Copilot', 'Vercel V0', 'OpenAI Codex', 'Lovable', 'DeepSeek', 'AI Code Debugging'],
   },
   {
-    key: 'Other',
     label: 'Other Skills',
+    role: 'Platforms & problem solving',
+    desc: 'Additional platforms and problem-solving strengths I bring to every project.',
     dot: '#34d399',
-    tagBg: 'rgba(52,211,153,0.08)',
-    tagBorder: 'rgba(52,211,153,0.22)',
-    tagText: '#a7f3d0',
+    items: ['Shopify Development', 'WordPress Development', 'Problem Solving', 'OOP'],
   },
 ];
+
+const pad = (n) => String(n).padStart(2, '0');
+
+function Header() {
+  return (
+    <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12 pt-24 lg:pt-32 mb-12 lg:mb-16">
+      <ScrollReveal animation="fadeUp">
+        <div className="flex items-center gap-4 mb-6">
+          <span className="badge">Skills</span>
+          <span className="flex-1 h-px bg-[var(--line)]" />
+          <HiOutlineSparkles className="text-[var(--accent)]" size={16} />
+        </div>
+      </ScrollReveal>
+      <ScrollReveal animation="fadeUp" delay={120}>
+        <h2
+          className="font-black text-white"
+          style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', letterSpacing: '-0.03em', lineHeight: 1.12, fontFamily: 'var(--font-space)' }}
+        >
+          My <span className="gradient-text">Tech Stack</span>
+          <span className="text-[var(--accent)]">.</span>
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal animation="fadeUp" delay={200}>
+        <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
+          Technologies and tools I use to build fast, modern, and scalable web experiences.
+        </p>
+      </ScrollReveal>
+    </div>
+  );
+}
+
+function Panel({ group, index }) {
+  return (
+    <div key={index} className="step-in relative glow-card rounded-2xl p-8 lg:p-12 w-full min-h-[480px] flex flex-col overflow-hidden">
+      {/* Ambient tint */}
+      <div
+        className="pointer-events-none absolute -top-20 -right-10 w-80 h-80 rounded-full blur-[120px]"
+        style={{ background: group.dot, opacity: 0.1 }}
+      />
+
+      {/* Counter top-right */}
+      <span
+        className="absolute top-8 right-8 lg:top-12 lg:right-12 font-display font-black italic text-transparent"
+        style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', WebkitTextStroke: `1px ${group.dot}`, opacity: 0.35 }}
+      >
+        {pad(index + 1)}<span className="text-base align-super">/{pad(groups.length)}</span>
+      </span>
+
+      {/* Title */}
+      <div className="relative">
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-3" style={{ color: group.dot }}>
+          {group.items.length} Skills
+        </p>
+        <h3
+          className="font-display font-black italic text-white mb-2"
+          style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.02em' }}
+        >
+          {group.label}
+        </h3>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">{group.role}</p>
+        <p className="text-sm sm:text-base text-[var(--muted)] leading-relaxed mt-4 max-w-lg">{group.desc}</p>
+      </div>
+
+      {/* Pills */}
+      <div className="relative flex flex-wrap gap-2.5 mt-8">
+        {group.items.map((item) => (
+          <span
+            key={item}
+            className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 cursor-default"
+            style={{
+              background: `${group.dot}14`,
+              border: `1px solid ${group.dot}44`,
+              color: '#e2edf8',
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: group.dot }} />
+            {item}
+          </span>
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      <div className="relative pt-8">
+        <div className="w-full h-0.5 rounded-full bg-white/10 overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${((index + 1) / groups.length) * 100}%`, background: group.dot }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Skills() {
+  const [active, setActive] = useState(0);
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = trackRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      if (total <= 0) return;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const p = scrolled / total;
+      const idx = Math.min(groups.length - 1, Math.floor(p * groups.length));
+      setActive(idx);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const goTo = (i) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const total = el.offsetHeight - window.innerHeight;
+    const targetP = (i + 0.5) / groups.length;
+    window.scrollTo({ top: el.offsetTop + targetP * total, behavior: 'smooth' });
+  };
 
   return (
-    <section id="skills" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <section id="skills" className="!border-t-0">
 
-        {/* Heading */}
-        <ScrollReveal animation="fadeUp" className="flex flex-col items-center text-center mb-16">
-          <span className="badge mb-4">Skills</span>
-          <h2 className="section-heading text-white">
-            My <span className="gradient-text">Tech Stack</span>
-          </h2>
-          <p className="text-[var(--muted)] mt-4 max-w-xl text-sm sm:text-base">
-            Technologies and tools I use to build fast, modern, and scalable web experiences.
-          </p>
-        </ScrollReveal>
+      {/* ── Desktop: pinned scroll-driven experience (header pinned with panel) ── */}
+      <div ref={trackRef} className="hidden lg:block relative" style={{ height: `${groups.length * 60}vh` }}>
+        <div className="sticky top-0 h-screen flex flex-col justify-center">
+          <div className="w-full max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        {/* ── Tech Skills with logos ── */}
-        <div className="mb-6">
-          <p className="text-xs font-bold text-[var(--muted)] uppercase tracking-[0.15em] mb-5 flex items-center gap-3">
-            <span className="flex-1 h-px bg-[rgba(34,211,238,0.1)]" />
-            Technologies
-            <span className="flex-1 h-px bg-[rgba(34,211,238,0.1)]" />
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mb-16">
-          {techSkills.map((skill, i) => (
-            <ScrollReveal key={skill.name} animation="scale" delay={i * 50}>
-            <div
-              className="group glow-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-default hover:-translate-y-1.5 transition-all duration-300"
-            >
-              <div className="relative w-12 h-12 group-hover:scale-110 transition-transform duration-300">
-                <Image src={skill.img} alt={skill.name} fill className="object-contain" />
+            {/* Header — pinned together with the panel */}
+            <div className="mb-12 xl:mb-14">
+              <div className="flex items-center gap-4 mb-5">
+                <span className="badge">Skills</span>
+                <span className="flex-1 h-px bg-[var(--line)]" />
+                <HiOutlineSparkles className="text-[var(--accent)]" size={16} />
               </div>
-              <div className="text-center w-full">
-                <p className="text-xs font-semibold text-[var(--muted)] group-hover:text-white transition-colors duration-200 truncate">
-                  {skill.name}
-                </p>
-                <div className="mt-1.5 w-full h-0.5 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: `${skill.level}%`,
-                      background: `linear-gradient(90deg, ${skill.color}66, ${skill.color})`,
-                    }}
-                  />
-                </div>
-                <p className="text-[10px] text-[var(--muted)] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  {skill.level}%
-                </p>
-              </div>
+              <h2
+                className="font-black text-white"
+                style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', letterSpacing: '-0.03em', lineHeight: 1.12, fontFamily: 'var(--font-space)' }}
+              >
+                My <span className="gradient-text">Tech Stack</span>
+                <span className="text-[var(--accent)]">.</span>
+              </h2>
+              <p className="text-[var(--muted)] mt-3 max-w-xl text-sm">
+                Technologies and tools I use to build fast, modern, and scalable web experiences.
+              </p>
             </div>
-            </ScrollReveal>
-          ))}
-        </div>
 
-        {/* ── Additional Skills ── */}
-        <div className="mt-4">
-          <p className="text-xs font-bold text-[var(--muted)] uppercase tracking-[0.15em] mb-10 flex items-center gap-3">
-            <span className="flex-1 h-px bg-[rgba(34,211,238,0.1)]" />
-            Additional Skills
-            <span className="flex-1 h-px bg-[rgba(34,211,238,0.1)]" />
-          </p>
+            <div className="grid grid-cols-[260px_1fr] gap-10 xl:gap-14 items-center">
 
-          <div className="flex flex-col gap-6">
-            {categories.map((cat, i) => {
-              const items = additionalSkills.filter((s) => s.category === cat.key);
-              return (
-                <ScrollReveal key={cat.key} animation="fadeLeft" delay={i * 100}>
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-
-                  {/* Category label — fixed width */}
-                  <div className="flex items-center gap-2 sm:w-44 flex-shrink-0 pt-0.5">
-                    <span
-                      className="w-2 h-2 rounded-full flex-shrink-0"
-                      style={{ background: cat.dot, boxShadow: `0 0 6px ${cat.dot}` }}
-                    />
-                    <span
-                      className="text-xs font-semibold uppercase tracking-widest"
-                      style={{ color: cat.dot }}
+              {/* Left — group list */}
+              <div className="flex flex-col justify-center gap-1.5">
+                {groups.map((g, i) => {
+                  const isActive = active === i;
+                  return (
+                    <button
+                      key={g.label}
+                      onClick={() => goTo(i)}
+                      className={`text-left rounded-xl px-4 py-4 border transition-all duration-300 ${
+                        isActive
+                          ? 'border-[rgba(34,211,238,0.3)] bg-[rgba(34,211,238,0.06)]'
+                          : 'border-transparent hover:bg-white/[0.03]'
+                      }`}
+                      style={isActive ? { borderColor: `${g.dot}55`, background: `${g.dot}12` } : {}}
                     >
-                      {cat.label}
-                    </span>
-                  </div>
-
-                  {/* Divider line on desktop */}
-                  <div className="hidden sm:block w-px self-stretch bg-[rgba(255,255,255,0.06)] flex-shrink-0 mt-1" />
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {items.map(({ label }) => (
-                      <span
-                        key={label}
-                        className="text-xs font-medium px-3 py-1.5 rounded-lg cursor-default
-                          transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
-                        style={{
-                          background: cat.tagBg,
-                          border: `1px solid ${cat.tagBorder}`,
-                          color: cat.tagText,
-                        }}
-                      >
-                        {label}
+                      <span className="flex items-center gap-2">
+                        <span
+                          className={`font-display font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-[var(--muted)]'}`}
+                        >
+                          {g.label}
+                        </span>
+                        {isActive && (
+                          <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: g.dot, boxShadow: `0 0 6px ${g.dot}` }} />
+                        )}
                       </span>
-                    ))}
-                  </div>
-                </div>
-                </ScrollReveal>
-              );
-            })}
+                      <span className="block text-[11px] font-semibold tracking-widest uppercase mt-1 text-[var(--muted)]">
+                        {g.items.length} skills
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Right — active panel */}
+              <Panel group={groups[active]} index={active} />
+            </div>
           </div>
         </div>
+      </div>
 
+      {/* ── Mobile / tablet: stacked ── */}
+      <div className="lg:hidden">
+      <Header />
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 pb-24 flex flex-col gap-6">
+        {groups.map((g, i) => (
+          <ScrollReveal key={g.label} animation="fadeUp" delay={(i % 2) * 100}>
+            <div className="glow-card rounded-2xl p-6 sm:p-8">
+              <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-2" style={{ color: g.dot }}>
+                {pad(i + 1)} · {g.items.length} Skills
+              </p>
+              <h3 className="font-display font-black italic text-white text-2xl mb-1" style={{ letterSpacing: '-0.02em' }}>
+                {g.label}
+              </h3>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)] mb-3">{g.role}</p>
+              <p className="text-sm text-[var(--muted)] leading-relaxed mb-5">{g.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {g.items.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full"
+                    style={{ background: `${g.dot}14`, border: `1px solid ${g.dot}44`, color: '#e2edf8' }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: g.dot }} />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
       </div>
     </section>
   );

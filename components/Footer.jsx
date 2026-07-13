@@ -2,6 +2,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { LiaLaptopCodeSolid } from 'react-icons/lia';
 import ScrollReveal from './ScrollReveal';
+import LocalTime from './LocalTime';
 
 const socials = [
   { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn' },
@@ -20,7 +21,7 @@ const links = [
 export default function Footer() {
   return (
     <footer className="border-t border-[rgba(34,211,238,0.1)] py-12">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
         <ScrollReveal animation="fadeUp" className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           {/* Brand */}
@@ -77,6 +78,9 @@ export default function Footer() {
         <div className="border-t border-[rgba(34,211,238,0.08)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[var(--muted)]">
             © {new Date().getFullYear()} Bisma Noor. All rights reserved.
+          </p>
+          <p className="text-xs text-[var(--muted)]">
+            <LocalTime />
           </p>
           <p className="text-xs text-[var(--muted)]">
             Built with <span className="text-[var(--accent)]">Next.js</span> &{' '}
