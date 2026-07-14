@@ -9,7 +9,7 @@ import ScrollReveal from './ScrollReveal';
 
 const socials = [
   { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn' },
-  { icon: FaXTwitter,   href: 'https://x.com/',                                    label: 'X'        },
+  { icon: FaXTwitter,   href: 'https://x.com/bisma51406',                          label: 'X'        },
   { icon: FaGithub,     href: 'https://github.com/bismanoordev',                    label: 'GitHub'   },
 ];
 
@@ -30,18 +30,28 @@ const faqs = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [open, setOpen] = useState(0);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, message } = form;
-    const mailto = `mailto:bismanoordeveloper@gmail.com?subject=${encodeURIComponent('Portfolio Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-    window.open(mailto, '_blank');
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('failed');
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -129,10 +139,23 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="btn-primary self-start rounded-full px-7 py-3 text-sm normal-case tracking-normal"
+                  disabled={status === 'sending'}
+                  className="btn-primary self-start rounded-full px-7 py-3 text-sm normal-case tracking-normal disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {sent ? '✓ Message Sent!' : 'Send message →'}
+                  {status === 'sending' && 'Sending...'}
+                  {status === 'sent' && '✓ Message Sent!'}
+                  {status === 'error' && '✕ Failed — try again'}
+                  {status === 'idle' && 'Send message →'}
                 </button>
+
+                {status === 'sent' && (
+                  <p className="text-xs text-[#34d399]">Thanks! Your message has been sent — I&apos;ll reply soon.</p>
+                )}
+                {status === 'error' && (
+                  <p className="text-xs text-red-400">
+                    Couldn&apos;t send. Please email me directly at bismanoordeveloper@gmail.com.
+                  </p>
+                )}
               </form>
 
               {/* Availability + email */}

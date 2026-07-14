@@ -6,7 +6,7 @@ import ScrollReveal from './ScrollReveal';
 const links = [
   { label: 'LinkedIn',      href: 'https://www.linkedin.com/in/bisma-noor-952092396/' },
   { label: 'GitHub',        href: 'https://github.com/bismanoordev' },
-  { label: 'X / Twitter',   href: 'https://x.com/' },
+  { label: 'X / Twitter',   href: 'https://x.com/bisma51406' },
   { label: 'Download CV',   href: '/resume.pdf' },
 ];
 

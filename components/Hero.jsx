@@ -27,7 +27,7 @@ import replitLogo from '@/assets/Replit.png';
 
 const socials = [
   { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/bisma-noor-952092396/', label: 'LinkedIn' },
-  { icon: FaXTwitter,   href: 'https://x.com/',                                    label: 'X'        },
+  { icon: FaXTwitter,   href: 'https://x.com/bisma51406',                          label: 'X'        },
   { icon: FaGithub,     href: 'https://github.com/bismanoordev',                    label: 'GitHub'   },
 ];
 
