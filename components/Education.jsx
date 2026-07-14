@@ -32,7 +32,7 @@ export default function Education() {
       <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* ── Editorial header ── */}
-        <div className="mb-16 lg:mb-20">
+        <div className="mb-16 mt-20 lg:mb-20">
           <ScrollReveal animation="fadeUp">
             <div className="flex items-center gap-4 mb-6">
               <span className="badge">Education</span>
