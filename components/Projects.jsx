@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal';
 import SterlingHale from '@/assets/sterling-hale.png';
 import Food from '@/assets/Food.png';
 import Icoder from '@/assets/Icoder.png';
-import TextUtils from '@/assets/TextUtils.png';
+import Rivera from '@/assets/rivera.png';
 import CarBooking from '@/assets/car-booking.png';
 import MissRose from '@/assets/miss-rose.png';
 
@@ -33,11 +33,11 @@ const projects = [
     tags: ['React', 'Monaco', 'CSS'],
   },
   {
-    title: 'TextUtils',
-    desc: 'Edit, Clean, and Convert Text Effortlessly. A utility app for text transformation with multiple powerful tools.',
-    img: TextUtils,
-    link: 'https://text-utils-gamma-five.vercel.app/',
-    tags: ['React', 'Bootstrap'],
+    title: 'Rivera Injury Law',
+    desc: 'We Take On the Insurance Company, So You Don\'t Have To. A personal injury law firm site with clear practice areas and a conversion-focused case intake flow.',
+    img: Rivera,
+    link: 'https://rivera-injury-law.vercel.app/',
+    tags: ['Next.js', 'Tailwind', 'Framer Motion'],
   },
   {
     title: 'Car Booking',
