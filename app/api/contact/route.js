@@ -4,13 +4,28 @@ import { Resend } from 'resend';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend ko request time par banate hain, module load par nahi.
+// Warna build ke waqt (jahan RESEND_API_KEY set nahi hoti) constructor
+// throw kar deta hai aur poori build fail ho jati hai.
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 // Jahan messages aayenge (aapka inbox)
 const TO_EMAIL = 'bismanoordeveloper@gmail.com';
 
 export async function POST(request) {
   try {
+    const resend = getResend();
+    if (!resend) {
+      return Response.json(
+        { error: 'Email is not configured. Please try again later.' },
+        { status: 503 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     // Basic validation
