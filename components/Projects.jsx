@@ -3,7 +3,7 @@ import { FaGithub, FaArrowRight, FaArrowUp } from 'react-icons/fa';
 import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
 import SterlingHale from '@/assets/sterling-hale.png';
-import Food from '@/assets/Food.png';
+import MediBook from '@/assets/medibook.png';
 import Icoder from '@/assets/Icoder.png';
 import Rivera from '@/assets/rivera.png';
 import CarBooking from '@/assets/car-booking.png';
@@ -19,10 +19,10 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Bite Into Happiness',
-    desc: 'The Fastest Way to Your Favorite Food. A sleek food delivery interface built for speed and satisfaction.',
-    img: Food,
-    link: 'https://text-utils-csij.vercel.app/',
+    title: 'MediBook',
+    desc: 'A modern healthcare platform designed to make finding and booking medical care simple and accessible.',
+    img: MediBook,
+    link: 'https://medi-book-chi-eight.vercel.app/',
     tags: ['React', 'Tailwind', 'Firebase'],
   },
   {
