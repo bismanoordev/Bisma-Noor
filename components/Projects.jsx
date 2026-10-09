@@ -3,7 +3,6 @@ import { FaGithub, FaArrowRight, FaArrowUp } from 'react-icons/fa';
 import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
 import SterlingHale from '@/assets/sterling-hale.png';
-import MediBook from '@/assets/medibook.png';
 import Rivera from '@/assets/rivera.png';
 import CarBooking from '@/assets/car-booking.png';
 import MissRose from '@/assets/miss-rose.png';
@@ -16,13 +15,6 @@ const projects = [
     link: 'https://sterling-hale-law-obsd.vercel.app/',
     tags: ['Next.js', 'Tailwind', 'Framer Motion'],
     featured: true,
-  },
-  {
-    title: 'MediBook',
-    desc: 'A modern healthcare platform designed to make finding and booking medical care simple and accessible.',
-    img: MediBook,
-    link: 'https://medi-book-chi-eight.vercel.app/',
-    tags: ['React', 'Tailwind', 'Firebase'],
   },
   {
     title: 'Rivera Injury Law',
