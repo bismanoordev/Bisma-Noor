@@ -4,7 +4,6 @@ import { HiOutlineSparkles } from 'react-icons/hi';
 import ScrollReveal from './ScrollReveal';
 import SterlingHale from '@/assets/sterling-hale.png';
 import MediBook from '@/assets/medibook.png';
-import Icoder from '@/assets/Icoder.png';
 import Rivera from '@/assets/rivera.png';
 import CarBooking from '@/assets/car-booking.png';
 import MissRose from '@/assets/miss-rose.png';
@@ -24,13 +23,6 @@ const projects = [
     img: MediBook,
     link: 'https://medi-book-chi-eight.vercel.app/',
     tags: ['React', 'Tailwind', 'Firebase'],
-  },
-  {
-    title: 'Icoder',
-    desc: 'Build the Future, One Line at a Time. An online code editor with live preview and syntax highlighting.',
-    img: Icoder,
-    link: 'https://icoder-silk.vercel.app/',
-    tags: ['React', 'Monaco', 'CSS'],
   },
   {
     title: 'Rivera Injury Law',
